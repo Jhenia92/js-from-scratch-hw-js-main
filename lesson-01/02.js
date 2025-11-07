@@ -10,5 +10,6 @@ let factorial = 1;
 let current = 0;
 while (current < 10) {
     current++;
+    factorial *= current;
 }
-factorial *= current;
+

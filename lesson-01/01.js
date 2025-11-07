@@ -4,7 +4,7 @@
 // your code
 let meaning = 1;
 let sum = 0;
-while (meaning <= 20) {   
+while (meaning <= 20) {
     sum += meaning;
-    meaning++; 
+    meaning++;
 };
