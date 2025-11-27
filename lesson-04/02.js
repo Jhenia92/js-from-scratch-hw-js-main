@@ -16,7 +16,13 @@
 */
 
 function findUniqueElements(arr) {
-  
+    arr.sort((a, b) => a - b);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[i + 1]) {
+            arr.splice(arr[i], 1);
+        }
+    }
+    return arr;
 }
-console.log(findUniqueElements([1, 2, 3, 2, 1, 4]));
+
 
