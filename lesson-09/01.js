@@ -53,14 +53,14 @@ function updateCartDisplay() {
   cartList.innerHTML = ''
 
   for (let i = 0; i < cart.length; i++) {
-    const petId = cart[i]
-    const pet = PETS.find((item) => item.id === petId)
-    const petSpanElement = document.createElement('li')
-    petSpanElement.classList.add('pet')
-    petSpanElement.textContent = pet.title
-    cartList.append(petSpanElement)
-  }
-}
+    const petId = cart[i];
+    const pet = PETS.find((item) => item.id === petId);
+    const petSpanElement = document.createElement('li');
+    petSpanElement.classList.add('pet');
+    petSpanElement.textContent = pet.title;
+    cartList.append(petSpanElement);
+  };
+};
 
 clearCartButton.addEventListener('click', function () {
   cart.length = 0

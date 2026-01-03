@@ -34,10 +34,36 @@ let timerId
 
 startButton.addEventListener('click', () => {
   let counter = 3
-
   // your code
+  if (isTimerStarted) return;
+  isTimerStarted = true;
+  countdownDisplay.textContent = counter;
+
+
+  timerId = setInterval(function () {
+    counter--;
+    if (counter > 0) {
+      countdownDisplay.textContent = counter;
+    } else {
+      countdownDisplay.textContent = "🚀"
+      clearInterval(timerId);
+      isTimerStarted = false;
+    }
+  }, 1000)
 })
 
 cancelButton.addEventListener('click', () => {
   // your code
+  if (isTimerStarted) {
+    clearInterval(timerId); // Отменяем таймер
+    countdownDisplay.textContent = 'Отменено';
+    isTimerStarted = false;
+  };
 })
+/* 
+2. Добавить обработчик событий для кнопки "Отмена":
+
+- При нажатии на кнопку "Отмена" таймер должен быть остановлен
+- В элементе отображения счётчика (countdownDisplay) должно появиться сообщение "Отменено".
+- Отмена таймера возможна только во время его работы
+- После отмены таймера возможен повторный запуск ракеты */
