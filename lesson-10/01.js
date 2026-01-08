@@ -30,6 +30,12 @@ const model = {
     view.renderMovies(this.movies)
   },
   // your code
+  delMovie(movieId) {
+    this.movies = this.movies.filter(m =>
+      m.id !== movieId
+    )
+    view.renderMovies(this.movies)
+  },
 }
 
 const view = {
@@ -51,6 +57,13 @@ const view = {
     })
 
     // your code
+    const delMovie = document.querySelector('.list');
+    delMovie.addEventListener('click', (event) => {
+      if (event.target.classList.contains('delete-button')) {
+        const movieId = +event.target.parentElement.id
+        controller.delMovie(movieId);
+      }
+    })
   },
   renderMovies(movies) {
     const list = document.querySelector('.list')
@@ -91,6 +104,10 @@ const controller = {
     }
   },
   // your code
+  delMovie(movieId) {
+    model.delMovie(movieId)
+    view.displayMessage('Фильм успешно удалён!')
+  },
 }
 
 function init() {
@@ -98,3 +115,6 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init)
+
+
+// Цель задания: Разработать функционал для удаления фильма из списка с использованием паттерна MVC. После удаления фильма, необходимо отобразить сообщение "Фильм успешно удалён!" в message-box
